@@ -1,0 +1,164 @@
+﻿body {
+    /*padding-top: 50px;*/
+    padding-bottom: 20px;
+    background-color: #f2f2f2;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 123px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#floating_logo {
+  position: fixed;
+  display: block;
+  /*float: left;*/
+  z-index: 10000;
+  top: 6px;
+  left: 50%;
+  margin-left: -90px;
+}
+
+#logo_image {
+  display:block;
+  max-width: 180px;
+  min-width: 180px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 12px;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.btn a {
+    color: inherit;
+    text-decoration: none;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand>img {
+    display: block;
+}
+
+.logo {
+    width: 140px;
+    margin-top: -10px;
+}
+
+#top-bar {
+    background-color: white;
+    border-bottom: 10px solid #004499;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+@media (max-width: 480px) {
+    #top-bar {
+        display: none;
+    }
+    .body-content {
+        padding-top: 50px;
+    }
+}
+
+@media (min-width: 481px) {
+    .navbar {
+        display: none;
+    }
+}
+
+.btn-darkblue {
+  background-color: #004499;
+  border-color: #004499;
+  color: white;
+}
+.btn-darkblue:hover,
+.btn-darkblue:focus,
+.btn-darkblue:active,
+.btn-darkblue.active {
+  background-color: #003980;
+  border-color: #002d66;
+  color: white;
+}
+.btn-darkblue.disabled:hover,
+.btn-darkblue.disabled:focus,
+.btn-darkblue.disabled:active,
+.btn-darkblue.disabled.active,
+.btn-darkblue[disabled]:hover,
+.btn-darkblue[disabled]:focus,
+.btn-darkblue[disabled]:active,
+.btn-darkblue[disabled].active,
+fieldset[disabled] .btn-darkblue:hover,
+fieldset[disabled] .btn-darkblue:focus,
+fieldset[disabled] .btn-darkblue:active,
+fieldset[disabled] .btn-darkblue.active {
+  background-color: #004499;
+  border-color: #004499;
+  color: white;
+}
+
+#custom-bootstrap-menu.navbar-default .navbar-brand {
+    color: rgba(255, 255, 255, 1);
+}
+#custom-bootstrap-menu.navbar-default {
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 1);
+    border-bottom: 10px solid #004499;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(248, 248, 248, 0);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 68, 153, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 68, 153, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #004499;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: #004499;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #004499;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #ffffff;
+}
+
+@media (max-width: 993px)
+{
+    .control-label {
+        text-align: left !important;
+    }
+}

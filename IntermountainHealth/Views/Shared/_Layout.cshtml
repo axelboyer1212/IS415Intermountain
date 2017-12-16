@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="top-bar" class="row text-center vertical-align">
+            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12 12-invisible">
+                <p class="btn btn-darkblue" style="vertical-align: middle;">@Html.ActionLink("New Patient", "Form", "Home")</p>
+            </div>
+            @*<div id="floating_logo">
+                <a href="~/Content/Images/logo-intermountain.png"><img id="logo_image" src="~/Content/Images/logo-intermountain.png" alt="Intermountain Health Logo"></a>
+            </div>*@
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <a href="~/"><img id="logo_image" src="~/Content/Images/logo-intermountain.png" alt="Intermountain Health Logo"></a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12 12-invisible">
+                <p class="btn btn-darkblue" style="vertical-align: middle;">@Html.ActionLink("Patient List", "List", "Home")</p>
+            </div>
+        </div>
+    </div>
+    <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                    <img class="logo" src="~/Content/Images/logo-intermountain-long.png" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("New Patient", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Patient List", "Index", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid body-content" style="padding-right: 0px; padding-left: 0px;">
+        <div style="background-color:#8dc53e; color: white;">
+            <div class="container">
+                    <h1>@ViewBag.PageTitle</h1>
+            </div>
+        </div>
+        <div class="container">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
