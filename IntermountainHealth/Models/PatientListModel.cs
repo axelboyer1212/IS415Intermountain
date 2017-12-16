@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.Web.Mvc;
+using System.Data.Sql;
 
 namespace IntermountainHealth.Models
 {
