@@ -2,9 +2,9 @@
 using System.Data.SqlClient;
 using System.Text;
 
-namespace sqltest
+namespace IntermountainHealth.Models
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

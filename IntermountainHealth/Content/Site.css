@@ -161,4 +161,15 @@ fieldset[disabled] .btn-darkblue.active {
     .control-label {
         text-align: left !important;
     }
+
+}
+
+@media (max-width: 650px) {
+    .hidden-mobile-column {
+        display: none;
+    }
+
+    .patient-list {
+        font-size: .8em;
+    }
 }

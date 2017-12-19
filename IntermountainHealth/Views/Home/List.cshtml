@@ -1,0 +1,73 @@
+﻿@model IntermountainHealth.Models.PatientListModel
+@{ 
+    ViewBag.PageTitle = "Patient List";
+}
+
+<table class="table patient-list" style="margin-top: 20px;">
+    <tr>
+        <th>
+            Patient Identifier
+        </th>
+        <th class="hidden-mobile-column">
+            Difficulty
+        </th>
+        <th class="hidden-mobile-column">
+            Is Abnormal
+        </th>
+        <th class="hidden-mobile-column">
+            Shift
+        </th>
+        <th>
+            Estimated Hours
+        </th>
+        <th>
+            Actual Hours
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Items) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient_Identifier)
+        </td>
+        <td class="hidden-mobile-column">
+            @Html.DisplayFor(modelItem => item.Difficulty_Level)
+        </td>
+        <td class="hidden-mobile-column">
+            @if (item.Is_Abnormal.Value)
+            {
+                <p>Yes</p>
+            }
+            else
+            {
+                <p>No</p>
+            }
+        </td>
+        <td class="hidden-mobile-column">
+            @if (item.Nurse_Shift == 1)
+            {
+                <p>Night</p>
+            }
+            else
+            {
+                <p>Day</p>
+            }
+        </td>
+        <td>
+            @Math.Round(item.Estimated_Hours.GetValueOrDefault(), 1)
+        </td>
+        <td>
+            @if (item.Actual_Hours != null)
+            {
+                <p>@Math.Round(item.Actual_Hours.GetValueOrDefault(), 1)</p>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Form", new { id = item.Patient_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Patient_Id })
+        </td>
+    </tr>
+}
+
+</table>

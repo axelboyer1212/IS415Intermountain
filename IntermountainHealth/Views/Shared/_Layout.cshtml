@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div id="top-bar" class="row text-center vertical-align">
             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12 12-invisible">
-                <p class="btn btn-darkblue" style="vertical-align: middle;">@Html.ActionLink("New Patient", "Form", "Home")</p>
+                <p class="btn btn-darkblue" style="vertical-align: middle;"><a href="~/home/form">New Patient</a></p>
             </div>
             @*<div id="floating_logo">
                 <a href="~/Content/Images/logo-intermountain.png"><img id="logo_image" src="~/Content/Images/logo-intermountain.png" alt="Intermountain Health Logo"></a>
@@ -40,8 +40,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("New Patient", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Patient List", "Index", "Home")</li>
+                    <li><a href="~/home/form">New Patient</a></li>
+                    <li>@Html.ActionLink("Patient List", "List", "Home")</li>
                 </ul>
             </div>
         </div>
@@ -56,7 +56,7 @@
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
             </footer>
         </div>
     </div>

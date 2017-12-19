@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using IntermountainHealth.DAL;
 using IntermountainHealth.Models;
 
 namespace IntermountainHealth.Controllers
 {
     public class HomeController : Controller
     {
+        private DataContext db = new DataContext();
+
         public ActionResult Index()
         {
             return RedirectToAction("Form");
@@ -34,16 +37,86 @@ namespace IntermountainHealth.Controllers
 
             if (id != null)
             {
-                model.Load(id.Value);
-            }
+                var patient = db.patients.Find(id);
+                if (patient == null)
+                {
+                    int? nullid = null;
+                    return RedirectToAction("Form", new { id = nullid });
+                }
 
+                model.Load(id.Value);
+                if (model.idFound)
+                {
+                    model.IsEdit = true;
+                }
+                else
+                {
+                    model.IsEdit = false;
+                }
+
+            }
+            else
+            {
+                model.IsEdit = false;
+            }
             return View("Form", model);
+        }
+
+        [HttpPost]
+        public ActionResult Form(PatientFormModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Save();
+            }
+            else
+            {
+                return View(model);
+            }
+            int id = model.Id;
+
+            return RedirectToAction("form", new { id = id });
         }
 
         public ActionResult List()
         {
             var model = new PatientListModel();
+            model.LoadItems();
             return View("List", model);
         }
+
+        public ActionResult Delete(int id)
+        {
+            var patient = db.patients.Find(id);
+            if (patient != null)
+            {
+                db.patients.Remove(patient);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("List");
+        }
+        public ActionResult Main()
+        {
+            //var firstuser = db.patients.Find(1);
+
+            //IEnumerable<PatientListModel> patientlist =
+            //    db.Database.SqlQuery<PatientListModel>("SELECT PATIENT_ID FROM PATIENT WHERE PATIENT_ID = 2");
+
+            var model = new PatientListModel();
+
+            var patient = db.patients.Find(1);
+            ViewBag.Stuff = db.Database.SqlQuery<PatientModel>("SELECT * FROM PATIENT").ToList();
+
+            model.Items = db.Database.SqlQuery<PatientModel>("SELECT * FROM PATIENT").ToList();
+            return View(model);
+
+            //var model = new PatientListModel();
+
+            //model.Main();
+
+            //return View("Main", model);
+        }
+
     }
 }
