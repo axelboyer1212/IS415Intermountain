@@ -31,12 +31,16 @@
                 @Html.ValidationMessageFor(model => model.Hours, "", new { @class = "text-danger" })
             </div>
         </div>*@
-    <div class="form-group" style="font-size:2em;">
-        @Html.LabelFor(model => model.EstimatedHours, htmlAttributes: new { @class = "control-label col-lg-4 col-md-4 col-sm-12" })
-        <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 8px;">
-            @Math.Round(Model.EstimatedHours, 1)
+    @if (Model.IsEdit)
+    {
+        <div class="form-group" style="font-size:2em;">
+            @Html.LabelFor(model => model.EstimatedHours, htmlAttributes: new { @class = "control-label col-lg-4 col-md-4 col-sm-12" })
+            <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 8px;">
+                @Math.Round(Model.EstimatedHours, 1)
+            </div>
         </div>
-    </div>
+    }
+
     <div class="form-group">
         @Html.LabelFor(model => model.IsAbnormal, htmlAttributes: new { @class = "control-label col-lg-4 col-md-4 col-sm-12" })
         <div class="col-lg-8 col-md-8 col-sm-12">

@@ -1,0 +1,64 @@
+﻿
+
+<script type="text/javascript" src="http://public.tableau.com/javascripts/api/tableau-2.0.0.min.js"></script>
+
+<script type="text/javascript">
+    var viz, workbook, activeSheet
+    function initViz() {
+        var containerDiv = document.getElementById("vizContainer"),
+            url = "https://public.tableau.com/views/IHC_2/ProcedureHours?:embed=y&:display_count=yes&publish=yes";
+
+        var options = {
+            width: 700,
+            height: 500,
+            hideTabs: true,
+            hideToolbar: true,
+            onFirstInteractive: function () {
+                workbook = viz.getWorkbook();
+                activeSheet = workbook.getActiveSheet();
+            }
+        };
+
+        viz = new tableau.Viz(containerDiv, url, options);
+    }
+    function revertAll() {
+        workbook.revertAllAsync();
+    }
+    function switchToTab(sheetname) {
+        workbook.activateSheetAsync(sheetname);
+    }
+    function exportPDF() {
+        viz.showExportPDFDialog();
+    }
+    function exportImage() {
+        viz.showExportImageDialog();
+    }
+    function exportData() {
+        viz.showExportDataDialog();
+    }
+</script>
+
+
+<body onload="initViz();" style="font: verdana; z-index: 0;" class="text-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-12 col-lg-offset-1 col-md-offset-1 btn-container" style="padding-top: 10px;">
+                <input type="button" class="btn btn-success" value="Hours Graph" onclick="switchToTab('Procedure Hours');">
+                <input type="button" class="btn btn-success" value="Abnormal Graph" onclick="switchToTab('Abnormal Influence');">
+                <input type="button" class="btn btn-success" value="Shift Graph" onclick="switchToTab('Shift Influence');">
+                <input type="button" class="btn btn-success" value="Default Filters" onclick="revertAll()">
+                <input type="button" class="btn btn-success" value="Export PDF" onclick="exportPDF()">
+                <input type="button" class="btn btn-success" value="Export Image" onclick="exportImage()">
+                <input type="button" class="btn btn-success" value="Export Data" onclick="exportData()">
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-12 col-lg-offset-1 col-md-offset-1" style="padding-top: 10px;">
+                <div id="vizContainer"></div>
+                <div id="vizContainer2"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</div>
+
