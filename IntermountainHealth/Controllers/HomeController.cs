@@ -96,26 +96,9 @@ namespace IntermountainHealth.Controllers
 
             return RedirectToAction("List");
         }
-        public ActionResult Main()
+        public ActionResult Tableau()
         {
-            //var firstuser = db.patients.Find(1);
-
-            //IEnumerable<PatientListModel> patientlist =
-            //    db.Database.SqlQuery<PatientListModel>("SELECT PATIENT_ID FROM PATIENT WHERE PATIENT_ID = 2");
-
-            var model = new PatientListModel();
-
-            var patient = db.patients.Find(1);
-            ViewBag.Stuff = db.Database.SqlQuery<PatientModel>("SELECT * FROM PATIENT").ToList();
-
-            model.Items = db.Database.SqlQuery<PatientModel>("SELECT * FROM PATIENT").ToList();
-            return View(model);
-
-            //var model = new PatientListModel();
-
-            //model.Main();
-
-            //return View("Main", model);
+            return View();
         }
 
     }

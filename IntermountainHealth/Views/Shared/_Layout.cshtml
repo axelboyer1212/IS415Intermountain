@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div id="top-bar" class="row text-center vertical-align">
             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12 12-invisible">
-                <p class="btn btn-darkblue" style="vertical-align: middle;"><a href="~/home/form">New Patient</a></p>
+                <a class="btn btn-darkblue" href="~/home/form">New Patient</a>
             </div>
             @*<div id="floating_logo">
                 <a href="~/Content/Images/logo-intermountain.png"><img id="logo_image" src="~/Content/Images/logo-intermountain.png" alt="Intermountain Health Logo"></a>
@@ -21,7 +21,7 @@
                 <a href="~/"><img id="logo_image" src="~/Content/Images/logo-intermountain.png" alt="Intermountain Health Logo"></a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12 12-invisible">
-                <p class="btn btn-darkblue" style="vertical-align: middle;">@Html.ActionLink("Patient List", "List", "Home")</p>
+                @Html.ActionLink("Patient List", "List", "Home", new { @class="btn btn-darkblue"})
             </div>
         </div>
     </div>
@@ -56,6 +56,13 @@
             @RenderBody()
             <hr />
             <footer>
+                <div class="container-fluid">
+                    <div class="row text-center" style="padding-top: 100px;">
+                        <p><a href="https://gallery.cortanaintelligence.com/Experiment/Group-Intermountain-Healthcare" target="_blank">Azure Experiment</a> 
+                        | <a href="https://public.tableau.com/profile/oliver.morgan#!/vizhome/IHC_2/ProcedureHours" target="_blank">Tableau Dashboard</a> 
+                        | @Html.ActionLink("Interactive Tableau JS", "Tableau", "Home")</p>
+                    </div>
+                </div>
                 @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
             </footer>
         </div>
